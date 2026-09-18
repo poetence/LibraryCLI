@@ -1,7 +1,6 @@
 package org.example;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Library {
     private final List<Book> catalog;
@@ -22,7 +21,7 @@ public class Library {
         if (!memberExists || !book.isPresent()){
             throw new IllegalArgumentException("Book with ISBN " + isbn + " does not exist or memberId " + memberId + "does not exist");
         } else if (book.get().isCheckedOut()) {
-            throw new IllegalStateException("Book with ISBN " + isbn + " is already checkedOut");
+            throw new IllegalStateException("Book with ISBN " + isbn + " is already checked out");
         } else {
             book.get().setCheckedOut(true);
             Member member = members.get(memberId);
